@@ -25,15 +25,12 @@ ROLLBACK;
 SELECT * FROM animals;
 BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
-SAVEPOINT S1;
+SAVEPOINT sp1;
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
-ROLLBACK S1;
+ROLLBACK sp1;
 SELECT COUNT(*) FROM animals;
-
 SELECT COUNT(*) FROM animals WHERE escape_attempt = 0;
-
 SELECT AVG(weight_kg) FROM animals;
-
 SELECT MAX(escape_attempt) FROM animals;
 SELECT MIN(weight_kg), MAX(weight_kg) FROM animals;
 SELECT AVG(escape_attempt) FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31';
