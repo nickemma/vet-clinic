@@ -36,3 +36,39 @@ SELECT AVG(weight_kg) FROM animals;
 SELECT MAX(escape_attempt) FROM animals;
 SELECT MIN(weight_kg), MAX(weight_kg) FROM animals;
 SELECT AVG(escape_attempt) FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31';
+
+
+-- Link animal table to species table and owners table
+
+-- Update species_id in animal table
+UPDATE animals SET species_id = 2 WHERE name LIKE '%mon';
+
+UPDATE animals SET species_id = 1 WHERE name NOT LIKE '%mon';
+
+-- Update owner_id in animals table
+UPDATE animals SET owners_id = 1 WHERE name = 'Agumon';
+
+UPDATE animals SET owners_id = 2 WHERE name  = 'Gabumon' OR name ='Pikachu';
+
+UPDATE animals SET owners_id = 3 WHERE name = 'Devimon' OR name = 'Plantmon';
+
+UPDATE animals SET owners_id = 4 WHERE name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom';
+
+UPDATE animals SET owners_id = 5 WHERE name = 'Angemon' OR name = 'Boarmon';
+
+
+--  write querries usinf JOIN
+
+SELECT animals.name FROM animals JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Melody Pond';
+
+SELECT * FROM animals JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
+
+SELECT animals.name, owners.full_name FROM animals RIGHT JOIN owners ON animals.owners_id = owners.id;
+
+SELECT species.name, COUNT(animals.species_id) FROM animals JOIN species ON species.id = animals.species_id GROUP BY species.name;
+
+SELECT animals.name from animals JOIN owners ON owners.id = animals.owners_id JOIN species on species.id = animals.species_id WHERE animals.species_id = '2' AND animals.owners_id = '2';
+
+SELECT animals.name from animals JOIN owners ON owners.id = animals.owners_id WHERE animals.escape_attempt = '0' AND animals.owners_id = '5';
+
+SELECT full_name, COUNT(owners_id) FROM owners JOIN animals on owners.id = animals.owners_id GROUP BY full_name ORDER BY COUNT (owners_id) desc limit 1;
