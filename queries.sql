@@ -57,7 +57,7 @@ UPDATE animals SET owners_id = 4 WHERE name = 'Charmander' OR name = 'Squirtle' 
 UPDATE animals SET owners_id = 5 WHERE name = 'Angemon' OR name = 'Boarmon';
 
 
---  write querries usinf JOIN
+--  write querries using JOIN
 
 SELECT animals.name FROM animals JOIN owners ON animals.owners_id = owners.id WHERE owners.full_name = 'Melody Pond';
 
@@ -72,3 +72,5 @@ SELECT animals.name from animals JOIN owners ON owners.id = animals.owners_id JO
 SELECT animals.name from animals JOIN owners ON owners.id = animals.owners_id WHERE animals.escape_attempt = '0' AND animals.owners_id = '5';
 
 SELECT full_name, COUNT(owners_id) FROM owners JOIN animals on owners.id = animals.owners_id GROUP BY full_name ORDER BY COUNT (owners_id) desc limit 1;
+
+-- -  write querries using JOIN for multiple tables

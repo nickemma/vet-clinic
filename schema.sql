@@ -27,4 +27,4 @@ ALTER TABLE animals ADD species_id BIGINt REFERENCES species(id);
 
 ALTER TABLE animals ADD owners_id BIGINT REFERENCES owners(id);
 
-
+-- -  write querries usinf JOIN
