@@ -73,4 +73,4 @@ SELECT animals.name from animals JOIN owners ON owners.id = animals.owners_id WH
 
 SELECT full_name, COUNT(owners_id) FROM owners JOIN animals on owners.id = animals.owners_id GROUP BY full_name ORDER BY COUNT (owners_id) desc limit 1;
 
--- -  write querries using JOIN for multiple tables
+-- -  write querries for many to many relation
