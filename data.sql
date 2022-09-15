@@ -30,6 +30,7 @@ VALUES ('Sam Smith', '34'),
 -- add data to species table
 INSERT INTO species (name)
 VALUES ('Pokemon'),
+
 ('Digimon');
 
 -- add data to vets table
