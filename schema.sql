@@ -46,12 +46,3 @@ CREATE TABLE visits (
     animals_id BIGINT REFERENCES animals (id),
     date_of_visit DATE NOT NULL
 );
-
-ALTER TABLE animals DROP COLUMN species;
-
-ALTER TABLE animals ADD species varchar(100);
-
-ALTER TABLE animals ADD species_id BIGINt REFERENCES species(id);
-
-ALTER TABLE animals ADD owners_id BIGINT REFERENCES owners(id);
-
