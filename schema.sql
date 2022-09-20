@@ -51,6 +51,6 @@ CREATE TABLE visits (
 
 -- =======Performance ==========
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
-CREATE INDEX ON owners (animals_id);
-CREATE INDEX ON owners (vets_id);
+CREATE INDEX ON visits (animals_id);
+CREATE INDEX ON visits (vets_id);
 CREATE INDEX ON owners (email);
