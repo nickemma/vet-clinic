@@ -27,6 +27,8 @@ ALTER TABLE animals DROP COLUMN species;
 ALTER TABLE animals ADD species_id BIGINt REFERENCES species(id);
 
 ALTER TABLE animals ADD owners_id BIGINT REFERENCES owners(id);
+-- ALTER TABLE owners ALTER COLUMN age DROP NOT NULL;
+
 
 -- JOIN Table
 CREATE TABLE vets (
@@ -47,11 +49,8 @@ CREATE TABLE visits (
     date_of_visit DATE NOT NULL
 );
 
-ALTER TABLE animals DROP COLUMN species;
-
-ALTER TABLE animals ADD species varchar(100);
-
-ALTER TABLE animals ADD species_id BIGINt REFERENCES species(id);
-
-ALTER TABLE animals ADD owners_id BIGINT REFERENCES owners(id);
-
+-- =======Performance ==========
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+CREATE INDEX ON visits (animals_id);
+CREATE INDEX ON visits (vets_id);
+CREATE INDEX ON owners (email);
